@@ -1,27 +1,253 @@
-.wpp-float {
-  display: none;
+.wpp-float { display: none; }
+
+.wpp-widget {
   position: fixed;
   bottom: 24px;
   right: 20px;
   z-index: 9999;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #25d366;
-  color: #fff;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
-  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
 
-  &:hover, &:active {
-    transform: scale(1.1);
-    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.7);
+  @media (max-width: 480px) {
+    bottom: 16px;
+    right: 12px;
+    gap: 8px;
   }
 }
 
-@media (max-width: 768px) {
-  .wpp-float {
-    display: flex;
+// ── Bolha de chat ─────────────────────────────────────────────────────────────
+.wpp-chat-bubble {
+  background: #fff;
+  border-radius: 16px 16px 4px 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.22);
+  width: 270px;
+  overflow: hidden;
+  animation: wpp-slide-up 0.35s ease;
+
+  @media (max-width: 480px) {
+    width: 220px;
   }
+}
+
+@keyframes wpp-slide-up {
+  from { opacity: 0; transform: translateY(20px) scale(.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.wpp-chat-header {
+  background: #075e54;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+
+  @media (max-width: 480px) {
+    gap: 6px;
+    padding: 7px 10px;
+  }
+
+  .wpp-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,.25);
+    flex-shrink: 0;
+
+    @media (max-width: 480px) {
+      width: 28px;
+      height: 28px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.4);
+    }
+  }
+
+  .wpp-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .wpp-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #fff;
+
+      @media (max-width: 480px) {
+        font-size: 0.78rem;
+      }
+    }
+
+    .wpp-status {
+      font-size: 0.65rem;
+      color: #25d366;
+    }
+  }
+
+  .wpp-close {
+    background: rgba(255,255,255,.15);
+    border: none;
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    flex-shrink: 0;
+
+    @media (max-width: 480px) {
+      width: 20px;
+      height: 20px;
+      font-size: 0.6rem;
+    }
+
+    &:hover { background: rgba(255,255,255,.3); }
+  }
+}
+
+.wpp-chat-body {
+  padding: 10px 12px 8px;
+  background: #e5ddd5;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  @media (max-width: 480px) {
+    padding: 8px 10px 7px;
+    gap: 5px;
+  }
+
+  .wpp-msg {
+    background: #fff;
+    border-radius: 0 8px 8px 8px;
+    padding: 7px 10px;
+    font-size: 0.8rem;
+    color: #111;
+    line-height: 1.4;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    width: fit-content;
+    max-width: 90%;
+
+    @media (max-width: 480px) {
+      font-size: 0.74rem;
+      padding: 6px 8px;
+    }
+  }
+
+  .wpp-typing {
+    background: #fff;
+    border-radius: 0 8px 8px 8px;
+    padding: 8px 12px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    width: fit-content;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+
+    @media (max-width: 480px) {
+      padding: 6px 10px;
+    }
+
+    span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #aaa;
+      animation: wpp-bounce 1.3s infinite ease-in-out;
+
+      @media (max-width: 480px) {
+        width: 5px;
+        height: 5px;
+      }
+
+      &:nth-child(1) { animation-delay: 0s; }
+      &:nth-child(2) { animation-delay: 0.2s; }
+      &:nth-child(3) { animation-delay: 0.4s; }
+    }
+  }
+}
+
+@keyframes wpp-bounce {
+  0%, 60%, 100% { transform: translateY(0); background: #aaa; }
+  30%            { transform: translateY(-7px); background: #25d366; }
+}
+
+.wpp-chat-btn {
+  display: block;
+  background: #25d366;
+  color: #fff;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 10px;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: background 0.2s;
+
+  @media (max-width: 480px) {
+    font-size: 0.76rem;
+    padding: 9px;
+  }
+
+  &:hover { background: #1da851; }
+}
+
+// ── FAB ───────────────────────────────────────────────────────────────────────
+.wpp-fab {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  @media (max-width: 480px) {
+    width: 46px;
+    height: 46px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(37,211,102,.7);
+  }
+}
+
+.wpp-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e53935;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  animation: wpp-ping 1s infinite;
+}
+
+@keyframes wpp-ping {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.2); }
 }

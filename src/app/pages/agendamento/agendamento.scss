@@ -148,7 +148,20 @@
       }
 
       &::placeholder { color: #555; }
-      option { background: #1a1a1a; }
+
+      option {
+        background: #1a1a1a;
+        color: #e0e0e0;
+      }
+
+      optgroup {
+        background: #111;
+        color: #c9a84c;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+      }
     }
 
     input[type="date"]::-webkit-calendar-picker-indicator {
@@ -221,6 +234,18 @@
     }
   }
 
+  .whatsapp-card--adriana {
+    border-color: rgba(201, 100, 180, 0.25);
+
+    .wpp-icone--adriana {
+      background: rgba(201, 100, 180, .15);
+      border-color: rgba(201, 100, 180, .3);
+      color: #c964b4;
+    }
+
+    h3 { color: #c964b4; }
+  }
+
   .btn-wpp {
     display: block;
     width: 100%;
@@ -232,6 +257,11 @@
     font-size: 0.9rem;
     text-align: center;
     transition: background 0.2s, transform 0.2s;
+
+    &--adriana {
+      background: #c964b4;
+      &:hover { background: #a84f98; transform: translateY(-2px); }
+    }
 
     &:hover {
       background: #1db954;
