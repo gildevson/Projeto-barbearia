@@ -71,14 +71,14 @@
     > * { position: relative; z-index: 1; }
 
     .hero-logo-wrap {
-      width: 64px;
-      height: 64px;
-      min-width: 64px;
+      width: 88px;
+      height: 88px;
+      min-width: 88px;
       border-radius: 50%;
       overflow: hidden;
       flex-shrink: 0;
-      border: 2.5px solid var(--cor-dourado);
-      box-shadow: 0 0 0 6px rgba(201,168,76,.1), 0 0 24px rgba(201,168,76,.25);
+      border: 3px solid var(--cor-dourado);
+      box-shadow: 0 0 0 8px rgba(201,168,76,.1), 0 0 32px rgba(201,168,76,.3);
 
       img {
         width: 100%;
@@ -91,7 +91,7 @@
     .hero-brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 18px;
       margin-bottom: 28px;
 
       .brand-texto {
@@ -103,7 +103,7 @@
 
         .brand-nome {
           font-family: 'Playfair Display', serif;
-          font-size: 2rem;
+          font-size: 2.8rem;
           font-weight: 700;
           color: var(--cor-dourado);
           letter-spacing: 0.5px;
@@ -111,8 +111,8 @@
         }
 
         .brand-sub {
-          font-size: 0.82rem;
-          letter-spacing: 5px;
+          font-size: 1rem;
+          letter-spacing: 6px;
           text-transform: uppercase;
           color: rgba(255,255,255,.55);
           line-height: 1;
@@ -292,14 +292,14 @@
 
 // ── SOBRE RAFAELA ─────────────────────────────────────────────────────────────
 .sobre-rafaela {
-  padding: 80px 0;
+  padding: 72px 0;
   background: var(--cor-fundo);
 
   .sobre-layout {
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
+    grid-template-columns: 1fr 1.2fr;
     gap: 56px;
-    align-items: center;
+    align-items: start;
   }
 
   .sobre-foto {
@@ -309,6 +309,9 @@
       width: 100%;
       max-width: 100%;
       height: auto;
+      min-height: 480px;
+      object-fit: cover;
+      object-position: center top;
       border-radius: 16px;
       display: block;
       border: 1px solid rgba(201,168,76,.2);
@@ -351,7 +354,7 @@
   .sobre-conteudo {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 
     .section-tag {
       font-size: 0.7rem;
