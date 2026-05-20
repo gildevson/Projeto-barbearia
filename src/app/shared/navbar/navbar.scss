@@ -1,0 +1,280 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--navbar-altura);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 40px;
+
+  // ao rolar a página, o Angular pode adicionar classe .scrolled via HostListener se necessário
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .navbar-brand .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+
+  .navbar-brand .logo {
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 2.5px solid var(--cor-dourado);
+    box-shadow: 0 0 14px rgba(201, 168, 76, 0.4);
+    flex-shrink: 0;
+  }
+
+  .navbar-brand .brand-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    padding-left: 2px;
+    border-left: 2px solid rgba(201,168,76,.3);
+    padding-left: 14px;
+
+    .brand-nome {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cor-dourado);
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-size: 0.58rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--cor-texto-suave);
+      line-height: 1;
+    }
+  }
+
+  // ── hamburguer (oculto no desktop) ──────────────────────────────────────
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 101;
+
+    span {
+      display: block;
+      height: 2px;
+      background: var(--cor-texto);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+
+    &.aberto {
+      span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+      span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+  }
+
+  // ── links ────────────────────────────────────────────────────────────────
+  .admin-link  { display: none; }
+  .menu-brand  { display: none; }
+  .menu-topo   { display: none; }
+  .menu-rodape { display: none; }
+
+  .navbar-links {
+    display: flex;
+    align-items: center;
+
+    .menu-itens {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+      list-style: none;
+    }
+
+    li a {
+      color: var(--cor-texto-suave);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+      position: relative;
+      padding-bottom: 4px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1.5px;
+        background: var(--cor-dourado);
+        transition: width 0.25s ease;
+      }
+
+      &:hover, &.active {
+        color: var(--cor-dourado);
+        &::after { width: 100%; }
+      }
+    }
+  }
+}
+
+// ── MOBILE ───────────────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+
+    .hamburger { display: flex; position: fixed; top: 16px; right: 20px; z-index: 1001; }
+
+    .navbar-links {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #0a0a0a;
+      z-index: 999;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 0;
+      padding: 0 32px 40px;
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+
+      &.aberto { transform: translateX(0); }
+
+      .menu-topo {
+        display: block;
+        padding-top: 64px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid rgba(201,168,76,.15);
+      }
+
+      .menu-brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        list-style: none;
+
+        .menu-logo {
+          width: 72px;
+          height: 72px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2.5px solid var(--cor-dourado);
+          box-shadow: 0 0 0 6px rgba(201,168,76,.1), 0 0 24px rgba(201,168,76,.25);
+        }
+
+        .menu-brand-texto {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+          padding-left: 14px;
+          border-left: 2px solid rgba(201,168,76,.35);
+
+          .menu-brand-nome {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--cor-dourado);
+            line-height: 1;
+          }
+
+          .menu-brand-sub {
+            font-size: 0.62rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.4);
+            line-height: 1;
+          }
+        }
+      }
+
+      .menu-itens {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        flex: 1;
+        justify-content: center;
+        padding: 32px 0;
+
+        li { list-style: none; }
+
+        li a {
+          display: block;
+          font-size: 1.6rem;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          font-weight: 500;
+          color: rgba(255,255,255,.6);
+          padding: 12px 0;
+          transition: color 0.2s, padding-left 0.2s;
+
+          &:hover, &.active {
+            color: var(--cor-dourado);
+            padding-left: 8px;
+          }
+        }
+      }
+
+      .menu-rodape {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255,255,255,.06);
+
+        .menu-wpp {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 1rem;
+          font-weight: 600;
+          color: #25d366;
+
+          .wpp-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #25d366;
+            box-shadow: 0 0 8px #25d366;
+            animation: pulse-wpp 2s infinite;
+          }
+        }
+
+        .menu-endereco {
+          font-size: 0.8rem;
+          color: rgba(255,255,255,.35);
+          letter-spacing: 0.3px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulse-wpp {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .4; }
+}

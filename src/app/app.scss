@@ -1,0 +1,27 @@
+.wpp-float {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  z-index: 9999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover, &:active {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.7);
+  }
+}
+
+@media (max-width: 768px) {
+  .wpp-float {
+    display: flex;
+  }
+}

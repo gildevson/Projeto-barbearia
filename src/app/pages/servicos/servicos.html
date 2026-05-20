@@ -1,0 +1,72 @@
+<section class="servicos-page">
+
+  <!-- Hero -->
+  <div class="servicos-hero">
+    <div class="servicos-hero-bg">
+      <img src="esponjadebarba.jpg" alt="" class="servicos-hero-img" />
+      <div class="servicos-hero-overlay"></div>
+    </div>
+    <div class="container servicos-hero-content">
+      <div class="servicos-hero-logo-wrap">
+        <img src="logo.png" alt="Rafa Barbershop" class="servicos-hero-logo" />
+      </div>
+      <div>
+        <p class="hero-tag">Tabela de Preços</p>
+        <h1>Nossos <span>Serviços</span></h1>
+        <p class="hero-sub">Qualidade e cuidado em cada atendimento — Curitiba</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Categorias -->
+  <div class="container servicos-body">
+
+    <div class="categorias-grid">
+      @for (cat of categorias; track cat.titulo) {
+        <div class="categoria">
+
+          @if (cat.imagem) {
+            <div class="cat-banner">
+              <img [src]="cat.imagem" [alt]="cat.titulo" class="cat-banner-img" />
+              <div class="cat-banner-overlay">
+                <span class="cat-icone">{{ cat.icone }}</span>
+                <h3>{{ cat.titulo }}</h3>
+              </div>
+            </div>
+          } @else {
+            <div class="categoria-header">
+              <span class="cat-icone">{{ cat.icone }}</span>
+              <h3>{{ cat.titulo }}</h3>
+            </div>
+          }
+
+          <div class="servicos-lista">
+            @for (s of cat.servicos; track s.id) {
+              <div class="servico-item" [class.destaque]="s.destaque">
+                <span class="servico-nome">{{ s.nome }}</span>
+                <span class="servico-dots"></span>
+                <span class="servico-preco">{{ s.preco }}</span>
+              </div>
+            }
+          </div>
+
+          @if (cat.contato) {
+            <div class="cat-contato">
+              <span>📱</span> {{ cat.contato }}
+            </div>
+          }
+
+        </div>
+      }
+    </div>
+
+    <div class="servicos-cta">
+      <div class="cta-texto">
+        <p class="cta-tag">Pronto para um novo visual?</p>
+        <p class="cta-titulo">Agende seu horário agora</p>
+      </div>
+      <a routerLink="/agendamento" class="btn btn-primary">Agendar agora</a>
+    </div>
+
+  </div>
+</section>

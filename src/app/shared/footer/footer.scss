@@ -1,0 +1,301 @@
+.footer {
+  background: #080808;
+  border-top: 1px solid var(--cor-borda);
+
+  // ── faixa dourada no topo ────────────────────────────────────────────────
+  .footer-topbar {
+    background: var(--cor-dourado);
+    padding: 10px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #0f0f0f;
+      letter-spacing: 0.5px;
+    }
+
+    .topbar-social {
+      display: flex;
+      gap: 16px;
+
+      a {
+        color: #0f0f0f;
+        opacity: 0.75;
+        transition: opacity 0.2s;
+        display: flex;
+        align-items: center;
+
+        &:hover { opacity: 1; }
+      }
+    }
+  }
+
+  // ── corpo ────────────────────────────────────────────────────────────────
+  .footer-main {
+    display: grid;
+    grid-template-columns: 1.7fr 1.2fr 1fr 1fr;
+    gap: 48px;
+    padding: 60px 80px;
+    border-bottom: 1px solid var(--cor-borda);
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    h4 {
+      font-size: 0.7rem;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--cor-dourado);
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(201,168,76,.2);
+      margin-bottom: 2px;
+    }
+  }
+
+  // ── marca ────────────────────────────────────────────────────────────────
+  .footer-brand {
+    .footer-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 4px;
+    }
+
+    .footer-logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2.5px solid var(--cor-dourado);
+      box-shadow: 0 0 20px rgba(201,168,76,.3);
+    }
+
+    .footer-brand-nome {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding-left: 14px;
+
+      .fn-rafa {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--cor-dourado);
+        letter-spacing: 0.5px;
+        line-height: 1;
+      }
+
+      .fn-sub {
+        font-size: 0.6rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--cor-texto-suave);
+        line-height: 1;
+      }
+    }
+
+    .footer-desc {
+      font-size: 0.86rem;
+      color: var(--cor-texto-suave);
+      line-height: 1.7;
+      max-width: 230px;
+    }
+
+    .footer-redes {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+
+      .rede {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.85rem;
+        padding: 9px 14px;
+        border-radius: var(--raio);
+        border: 1px solid var(--cor-borda);
+        transition: all 0.2s;
+        width: fit-content;
+
+        span { color: var(--cor-texto-suave); transition: color 0.2s; }
+
+        &:hover {
+          border-color: currentColor;
+          span { color: currentColor; }
+        }
+
+        &.instagram { color: #e1306c; }
+        &.facebook  { color: #1877f2; }
+      }
+    }
+  }
+
+  // ── contato ───────────────────────────────────────────────────────────────
+  address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contato-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.87rem;
+    color: var(--cor-texto-suave);
+    line-height: 1.5;
+
+    .contato-icone { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  }
+
+  .contato-wpp {
+    color: #25d366;
+    font-weight: 500;
+    &:hover { text-decoration: underline; }
+  }
+
+  @media (max-width: 768px) {
+    .btn-wpp-footer { display: none; }
+  }
+
+  .btn-wpp-footer {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: #25d366;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 11px 18px;
+    border-radius: var(--raio);
+    transition: background 0.2s, transform 0.2s;
+    width: fit-content;
+    margin-top: 4px;
+
+    &:hover {
+      background: #1db954;
+      transform: translateY(-2px);
+    }
+  }
+
+  // ── horários ─────────────────────────────────────────────────────────────
+  .footer-horarios {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.84rem;
+      color: var(--cor-texto-suave);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--cor-borda);
+
+      &:last-child { border-bottom: none; }
+      &.fechado-row { opacity: 0.45; }
+
+      .hora { color: var(--cor-texto); }
+      .fechado { color: #c0392b; font-weight: 500; }
+    }
+  }
+
+  // ── navegação ─────────────────────────────────────────────────────────────
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    li a {
+      font-size: 0.87rem;
+      color: var(--cor-texto-suave);
+      padding: 5px 0;
+      display: block;
+      transition: color 0.2s, padding-left 0.2s;
+
+      &:hover {
+        color: var(--cor-dourado);
+        padding-left: 6px;
+      }
+    }
+  }
+
+  // ── RESPONSIVO ─────────────────────────────────────────────────────────────
+  @media (max-width: 900px) {
+    .footer-topbar { padding: 10px 20px; }
+
+    .footer-main {
+      grid-template-columns: 1fr 1fr;
+      padding: 48px 24px;
+      gap: 36px;
+    }
+
+    .footer-brand { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 560px) {
+    .footer-main {
+      grid-template-columns: 1fr;
+      padding: 40px 20px;
+    }
+  }
+
+  // ── rodapé inferior ───────────────────────────────────────────────────────
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 18px 80px;
+
+    @media (max-width: 900px) { padding: 16px 24px; }
+    @media (max-width: 560px) {
+      flex-direction: column;
+      text-align: center;
+      padding: 16px 20px;
+    }
+
+    p {
+      font-size: 0.78rem;
+      color: #444;
+    }
+
+    .footer-dev {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201, 168, 76, 0.08);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      border-radius: 20px;
+      padding: 6px 14px;
+      transition: background 0.2s, border-color 0.2s;
+
+      &:hover {
+        background: rgba(201, 168, 76, 0.15);
+        border-color: var(--cor-dourado);
+      }
+
+      .dev-label {
+        font-size: 0.72rem;
+        color: #555;
+      }
+
+      .dev-nome {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--cor-dourado);
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+}

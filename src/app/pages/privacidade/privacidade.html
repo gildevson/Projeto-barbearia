@@ -1,0 +1,183 @@
+<section class="privacidade-page">
+
+  <div class="priv-hero">
+    <div class="container priv-hero-content">
+      <p class="hero-tag">Legal</p>
+      <h1>Privacidade <span>&</span> Cookies</h1>
+      <p class="hero-sub">Última atualização: abril de 2025</p>
+    </div>
+  </div>
+
+  <div class="container priv-body">
+
+    <!-- Tabs -->
+    <div class="priv-tabs">
+      <button
+        class="priv-tab"
+        [class.ativo]="aba() === 'privacidade'"
+        (click)="aba.set('privacidade')">
+        Política de Privacidade
+      </button>
+      <button
+        class="priv-tab"
+        [class.ativo]="aba() === 'cookies'"
+        (click)="aba.set('cookies')">
+        Política de Cookies
+      </button>
+    </div>
+
+    <div class="priv-layout">
+
+      <!-- ── Política de Privacidade ── -->
+      @if (aba() === 'privacidade') {
+        <article class="priv-artigo">
+
+          <div class="priv-intro">
+            <p>
+              A <strong>Rafa Barbershop</strong> respeita sua privacidade. Esta política descreve como as
+              informações dos visitantes são tratadas ao navegar por este site.
+            </p>
+          </div>
+
+          <div class="priv-secao">
+            <h3><span class="sec-num">01</span> Finalidade do Site</h3>
+            <p>
+              Este site tem como objetivo apresentar os serviços da Rafa Barbershop, permitir agendamentos
+              online e facilitar o contato com nossos clientes. Não há venda de dados, cadastros obrigatórios
+              ou coleta ativa de dados pessoais além do necessário para o agendamento.
+            </p>
+          </div>
+
+          <div class="priv-secao">
+            <h3><span class="sec-num">02</span> Dados Coletados Automaticamente</h3>
+            <p>Ao visitar o site, podem ser coletados automaticamente:</p>
+            <ul class="priv-lista">
+              <li>Endereço IP</li>
+              <li>Tipo de navegador e idioma</li>
+              <li>Sistema operacional</li>
+              <li>Localização aproximada baseada em IP</li>
+              <li>Páginas visitadas e tempo de navegação</li>
+            </ul>
+          </div>
+
+          <div class="priv-secao">
+            <h3><span class="sec-num">03</span> Dados de Agendamento</h3>
+            <p>
+              As informações fornecidas no agendamento (nome, telefone, serviço e horário) são utilizadas
+              somente para confirmar e gerenciar sua reserva. Não são compartilhadas com terceiros.
+            </p>
+          </div>
+
+          <div class="priv-secao">
+            <h3><span class="sec-num">04</span> Contato via WhatsApp</h3>
+            <p>
+              As mensagens enviadas são tratadas com sigilo e utilizadas apenas para responder à sua
+              solicitação. Não compartilhamos contatos com terceiros.
+            </p>
+          </div>
+
+          <div class="priv-secao">
+            <h3><span class="sec-num">05</span> Compartilhamento de Dados</h3>
+            <p>Nenhuma informação pessoal é vendida, alugada ou compartilhada com terceiros.</p>
+          </div>
+
+          <div class="priv-secao destaque">
+            <h3><span class="sec-num">06</span> Seus Direitos — LGPD</h3>
+            <p>Em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD)</strong>, você tem direito a:</p>
+            <ul class="priv-lista priv-lista--check">
+              <li>Saber quais dados foram coletados</li>
+              <li>Solicitar correção ou exclusão dos dados</li>
+              <li>Revogar consentimento a qualquer momento</li>
+              <li>Opor-se ao tratamento de dados</li>
+            </ul>
+          </div>
+
+          <div class="priv-secao">
+            <h3><span class="sec-num">07</span> Alterações nesta Política</h3>
+            <p>
+              Esta política pode ser atualizada periodicamente. Mudanças significativas serão refletidas
+              nesta página com a data de atualização revisada.
+            </p>
+          </div>
+
+        </article>
+      }
+
+      <!-- ── Política de Cookies ── -->
+      @if (aba() === 'cookies') {
+        <article class="priv-artigo">
+
+          <div class="priv-intro">
+            <p>Usamos cookies para melhorar sua experiência de navegação. Entenda como e por que os utilizamos.</p>
+          </div>
+
+          <div class="priv-secao">
+            <h3><span class="sec-num">01</span> O que são Cookies?</h3>
+            <p>
+              Os cookies são pequenos arquivos de texto armazenados no seu dispositivo quando você visita
+              um site. São utilizados para fazer com que os sites funcionem de forma mais eficiente e para
+              fornecer informações aos proprietários do site.
+            </p>
+          </div>
+
+          <div class="priv-secao">
+            <h3><span class="sec-num">02</span> Como Usamos os Cookies</h3>
+            <p>Este site pode utilizar cookies nas seguintes categorias:</p>
+
+            <div class="cookie-tipo">
+              <span class="cookie-badge cookie-badge--necessario">Necessários</span>
+              <p>Essenciais para o funcionamento do site. Sem eles, partes do site não funcionariam corretamente.</p>
+            </div>
+
+            <div class="cookie-tipo">
+              <span class="cookie-badge cookie-badge--analise">Análise</span>
+              <p>Permitem reconhecer e contar os visitantes do site para melhorar o desempenho e a experiência de navegação.</p>
+            </div>
+
+            <div class="cookie-tipo">
+              <span class="cookie-badge cookie-badge--funcional">Funcionais</span>
+              <p>Usados para reconhecer você quando retorna ao site e personalizar o conteúdo conforme suas preferências.</p>
+            </div>
+          </div>
+
+          <div class="priv-secao destaque">
+            <h3><span class="sec-num">03</span> Gerenciamento de Cookies</h3>
+            <p>
+              Você pode controlar e/ou excluir cookies a qualquer momento pelas configurações do seu
+              navegador. A desativação de cookies pode afetar a funcionalidade do site.
+            </p>
+            <ul class="priv-lista priv-lista--check">
+              <li>Controle cookies pelo navegador</li>
+              <li>Exclua cookies salvos a qualquer momento</li>
+              <li>Bloqueie cookies de terceiros</li>
+            </ul>
+          </div>
+
+        </article>
+      }
+
+      <!-- Sidebar -->
+      <aside class="priv-sidebar">
+        <div class="sidebar-card sidebar-card--contato">
+          <h4>Rafa Barbershop</h4>
+          <p>📍 R. João Reboli, 15 — Curitiba</p>
+          <p>📍 Estrada da Ribeira, 565 — Imbual</p>
+          <p>📱 (41) 99538-4543</p>
+          <a routerLink="/home" class="btn btn-outline" style="margin-top:14px; display:block; text-align:center">
+            Voltar ao site
+          </a>
+        </div>
+
+        <div class="sidebar-card sidebar-duvidas">
+          <p>Dúvidas sobre privacidade?</p>
+          <a href="https://wa.me/5541995384543" target="_blank" class="btn btn-primary"
+             style="display:block; text-align:center; margin-top:12px">
+            Falar no WhatsApp
+          </a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+</section>

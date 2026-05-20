@@ -1,0 +1,294 @@
+.agendamento-page {
+
+  // ── HERO ──────────────────────────────────────────────────────────────────
+  .agendamento-hero {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    margin-top: calc(-1 * var(--navbar-altura));
+
+    .hero-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(5,5,5,.85) 0%, rgba(5,5,5,.5) 60%, rgba(5,5,5,.3) 100%);
+    }
+
+    .agendamento-hero-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+      padding-left: 40px;
+      padding-top: var(--navbar-altura);
+
+      .hero-tag {
+        font-size: 0.68rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--cor-dourado);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 24px;
+          height: 1px;
+          background: var(--cor-dourado);
+        }
+      }
+
+      h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.4rem;
+        color: #fff;
+        line-height: 1.1;
+        margin-bottom: 8px;
+        span { color: var(--cor-dourado); }
+      }
+
+      .hero-sub {
+        font-size: 0.9rem;
+        color: rgba(255,255,255,.65);
+      }
+    }
+  }
+
+  // ── BODY ──────────────────────────────────────────────────────────────────
+  .agendamento-body {
+    padding: 56px 24px 96px;
+  }
+
+  .agendamento-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 32px;
+    align-items: start;
+  }
+
+  // ── FORMULÁRIO ────────────────────────────────────────────────────────────
+  .form-agendamento {
+    background: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .form-titulo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--cor-borda);
+
+    .form-step {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--cor-dourado);
+      opacity: .5;
+      line-height: 1;
+    }
+
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--cor-texto);
+    }
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cor-texto-suave);
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    input, select {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--cor-borda);
+      border-radius: 8px;
+      padding: 13px 16px;
+      color: var(--cor-texto);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, background 0.2s;
+      outline: none;
+      width: 100%;
+
+      &:focus {
+        border-color: var(--cor-dourado);
+        background: rgba(201,168,76,.04);
+      }
+
+      &::placeholder { color: #555; }
+      option { background: #1a1a1a; }
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.5);
+      cursor: pointer;
+    }
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+    margin-top: 4px;
+  }
+
+  // ── SIDEBAR ───────────────────────────────────────────────────────────────
+  .agendamento-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .whatsapp-card {
+    background: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+
+    .wpp-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wpp-icone {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(37,211,102,.15);
+      border: 1px solid rgba(37,211,102,.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #25d366;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--cor-texto);
+    }
+
+    p {
+      font-size: 0.85rem;
+      color: var(--cor-texto-suave);
+      line-height: 1.6;
+    }
+
+    .wpp-numero {
+      font-size: 0.82rem;
+      color: var(--cor-texto-suave);
+    }
+  }
+
+  .btn-wpp {
+    display: block;
+    width: 100%;
+    background: #25d366;
+    color: #fff;
+    padding: 13px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: background 0.2s, transform 0.2s;
+
+    &:hover {
+      background: #1db954;
+      transform: translateY(-2px);
+    }
+  }
+
+  .info-card {
+    background: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 22px 24px;
+
+    h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cor-dourado);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .horarios-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        color: var(--cor-texto-suave);
+
+        &.fechado span:last-child { color: #e05555; }
+      }
+    }
+
+    .endereco-item {
+      font-size: 0.85rem;
+      color: var(--cor-texto-suave);
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+  }
+
+  // ── RESPONSIVO ────────────────────────────────────────────────────────────
+  @media (max-width: 900px) {
+    .agendamento-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .agendamento-hero { height: 200px; }
+    .agendamento-hero-content h1 { font-size: 1.8rem; }
+    .agendamento-body { padding: 40px 0 64px; }
+    .form-agendamento { padding: 24px 16px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+}

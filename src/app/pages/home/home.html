@@ -1,0 +1,668 @@
+<section class="hero">
+  <!-- foto de fundo tela inteira -->
+  <div class="foto-wrapper">
+    <img src="RafaCortandoBarba.png" alt="Rafaela barbeira em ação" class="foto-barbeiro" />
+  </div>
+
+  <!-- badge flutuante: aberto agora -->
+  <div class="foto-tag">
+    <span class="dot"></span>
+    Aberto agora
+  </div>
+
+  <!-- badge flutuante: 10+ anos -->
+  <div class="foto-badge">
+    <span class="badge-num">10+</span>
+    <span class="badge-txt">anos de corte</span>
+  </div>
+
+  <!-- conteúdo sobreposto -->
+  <div class="hero-esquerda">
+    <div class="hero-brand">
+      <div class="hero-logo-wrap">
+        <img src="logo.png" alt="Rafa Barbershop" />
+      </div>
+      <div class="brand-texto">
+        <span class="brand-nome">Rafa</span>
+        <span class="brand-sub">Barbershop</span>
+      </div>
+    </div>
+    <p class="hero-tag">Estilo & Precisão</p>
+    <h1>A Arte de um <span>Bom Corte</span></h1>
+    <p class="hero-desc">Experiência premium em barbearia para o homem moderno. Corte, barba e muito mais com profissionais de excelência.</p>
+    <div class="hero-actions">
+      <a routerLink="/agendamento" class="btn btn-primary">Agendar Horário</a>
+      <a routerLink="/servicos" class="btn btn-outline">Ver Serviços</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="num">+500</span>
+        <span class="label">Clientes atendidos</span>
+      </div>
+      <div class="stat">
+        <span class="num">10+</span>
+        <span class="label">Anos de corte de cabelo</span>
+      </div>
+      <div class="stat">
+        <span class="num">98%</span>
+        <span class="label">Satisfação</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção: História da Rafaela -->
+<section class="sobre-rafaela">
+  <div class="container">
+
+    <div class="sobre-layout">
+      <div class="sobre-foto">
+        <img src="RafaCortabdocablodemulher.png" alt="Rafaela trabalhando" class="sobre-img" />
+        <div class="sobre-experiencia">
+          <span class="exp-num">10+</span>
+          <span class="exp-txt">anos de corte de cabelo</span>
+        </div>
+      </div>
+
+      <div class="sobre-conteudo">
+        <p class="section-tag">Conheça a profissional</p>
+        <h2 class="section-title">A História de <span>Rafaela</span></h2>
+
+        <p class="sobre-texto">
+          Rafaela descobriu sua paixão pelas tesouras ainda jovem e nunca mais largou. Com mais de
+          <strong>10 anos dedicados ao corte de cabelo</strong> e uma trajetória sólida na barbearia,
+          ela transformou técnica em arte e atendimento em experiência.
+        </p>
+        <p class="sobre-texto">
+          Especialista em <strong>cortes masculinos clássicos e modernos</strong> e
+          <strong>cortes infantis</strong>, Rafaela cria um ambiente acolhedor e divertido para as
+          crianças. Quem passa pela sua cadeira uma vez, <strong>sempre volta</strong> — a fidelidade
+          dos clientes é o maior reconhecimento do seu trabalho.
+        </p>
+        <p class="sobre-texto">
+          No universo feminino, Rafaela realiza <strong>aplicações e tratamentos capilares</strong>
+          com excelência — Butterfly Cut, Babyliss, hidratação, progressiva e muito mais,
+          devolvendo brilho, movimento e autoestima a cada cliente.
+        </p>
+        <p class="sobre-texto">
+          Cada atendimento é tratado como uma obra única — da criança ao adulto, do degradê ao
+          navalhado, do corte feminino à aplicação, Rafaela entrega muito mais do que um serviço:
+          entrega <strong>confiança e estilo</strong>.
+        </p>
+
+        <div class="sobre-especialidades">
+          <div class="esp-item">
+            <span class="esp-icone">✂️</span>
+            <span>10+ anos de corte de cabelo</span>
+          </div>
+          <div class="esp-item">
+            <span class="esp-icone">👦</span>
+            <span>Especialista em cortes infantis</span>
+          </div>
+          <div class="esp-item">
+            <span class="esp-icone">💇‍♀️</span>
+            <span>Aplicações e tratamentos femininos</span>
+          </div>
+          <div class="esp-item">
+            <span class="esp-icone">🪒</span>
+            <span>Barba com navalha e modelagem</span>
+          </div>
+          <div class="esp-item">
+            <span class="esp-icone">🏆</span>
+            <span>Referência em barbearia em Curitiba</span>
+          </div>
+        </div>
+
+        <a routerLink="/agendamento" class="btn btn-primary" style="margin-top: 8px">
+          Agendar com Rafaela
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Seção: Portfólio de Trabalhos -->
+<section class="portfolio">
+  <div class="container">
+    <p class="section-tag">Resultados reais</p>
+    <h2 class="section-title">Nossos <span>Trabalhos</span></h2>
+    <p class="section-sub">Cada corte conta uma história — veja alguns dos nossos melhores trabalhos</p>
+
+    <div class="portfolio-grid" (click)="abrirFoto($event)">
+
+      <!-- Foto 1: Destaque grande (col 1-2, row 1-2) -->
+      <div class="portfolio-item gi-1">
+        <img src="VitriniTioRenanSentado.png" alt="Corte masculino" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Masculino</span>
+            <span class="p-nome">Corte Clássico</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Foto 2: topo direita -->
+      <div class="portfolio-item gi-2">
+        <img src="RomaoVitrini.jpeg" alt="Corte masculino" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Masculino</span>
+            <span class="p-nome">Degradê</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Foto 3: meio direita -->
+      <div class="portfolio-item gi-3">
+        <img src="RomaoFundoVitrini.jpg" alt="Corte masculino" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Masculino</span>
+            <span class="p-nome">Navalhado</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Foto 4: linha 3 esquerda -->
+      <div class="portfolio-item gi-4">
+        <img src="RenanParadoVitrine.png" alt="Corte masculino" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Masculino</span>
+            <span class="p-nome">Corte Moderno</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Linha 3: fotos adicionais -->
+      <div class="portfolio-item gi-5">
+        <img src="HomemAdulto.jpg" alt="Corte masculino degradê" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Masculino</span>
+            <span class="p-nome">Degradê</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item gi-6">
+        <img src="HomemAdultoDois.jpg" alt="Corte masculino fade moderno" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Masculino</span>
+            <span class="p-nome">Fade Moderno</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Seção: Feminino -->
+    <div class="portfolio-label">
+      <div class="portfolio-label-left">
+        <span class="p-label-tag">💇‍♀️ Feminino</span>
+        <span class="p-label-nome">Cortes & Estilo Feminino</span>
+      </div>
+    </div>
+    <div class="portfolio-grid--feminino" (click)="abrirFoto($event)">
+
+      <div class="portfolio-item">
+        <img src="FEMINORafafrente.png" alt="Ondas feminino frente" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Feminino · Ondas</span>
+            <span class="p-nome">Cachos & Ondas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="FEMINIORafaAtras.png" alt="Ondas feminino costas" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Feminino · Ondas</span>
+            <span class="p-nome">Vista Traseira</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="feminoMulher.png" alt="Corte feminino" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Feminino</span>
+            <span class="p-nome">Corte & Estilo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="FemininoSuli.png" alt="Corte feminino Suli" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Feminino</span>
+            <span class="p-nome">Estilo & Elegância</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="feminino.jpg" alt="Babyliss feminino" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Feminino</span>
+            <span class="p-nome">Babyliss</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="feminino.png" alt="Butterfly Cut feminino" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Feminino</span>
+            <span class="p-nome">Butterfly Cut</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="feminodois.jpg" alt="Corte feminino" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Feminino</span>
+            <span class="p-nome">Corte & Volume</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="FeminoCostas.jpg" alt="Corte feminino vista costas" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Feminino</span>
+            <span class="p-nome">Vista Costas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="FemininoLateral.jpg" alt="Corte feminino lateral" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Feminino</span>
+            <span class="p-nome">Vista Lateral</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Seção: Masculino · Mais Estilos -->
+    <div class="portfolio-label">
+      <div class="portfolio-label-left">
+        <span class="p-label-tag">✂️ Masculino</span>
+        <span class="p-label-nome">Mais Estilos</span>
+      </div>
+    </div>
+    <div class="portfolio-grid--3col" (click)="abrirFoto($event)">
+      <div class="portfolio-item">
+        <img src="HomemAdultoTres.jpg" alt="Corte masculino" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Masculino</span>
+            <span class="p-nome">Low Fade</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="HomemAdultoQuatro.jpg" alt="Corte masculino" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Masculino</span>
+            <span class="p-nome">Mid Fade</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="HomemAdultoCinco.jpg" alt="Corte masculino" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Masculino</span>
+            <span class="p-nome">High Fade</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção: Corte com Desenho -->
+    <div class="portfolio-label">
+      <div class="portfolio-label-left">
+        <span class="p-label-tag">✂️ Masculino · Arte</span>
+        <span class="p-label-nome">Corte com Desenho</span>
+      </div>
+    </div>
+    <div class="portfolio-grid--2col" (click)="abrirFoto($event)">
+      <div class="portfolio-item">
+        <img src="AdultoComDesenho.jpg" alt="Corte com desenho" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Masculino · Desenho</span>
+            <span class="p-nome">Degradê com Arte</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="AdultoComDesenhoDois.jpg" alt="Corte com desenho" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Masculino · Desenho</span>
+            <span class="p-nome">Fade com Detalhe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção: Masculino Degradê -->
+    <div class="portfolio-label">
+      <div class="portfolio-label-left">
+        <span class="p-label-tag">✂️ Masculino · Degradê</span>
+        <span class="p-label-nome">Degradê Completo</span>
+      </div>
+    </div>
+    <div class="portfolio-grid--3col" (click)="abrirFoto($event)">
+      <div class="portfolio-item">
+        <img src="JEFERSONum.jpg" alt="Corte masculino degradê" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Masculino · Degradê</span>
+            <span class="p-nome">Vista Frontal</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="JEFERSOdois.jpg" alt="Corte masculino degradê" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Masculino · Degradê</span>
+            <span class="p-nome">Vista Lateral</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="JEFERSOtres.jpg" alt="Corte masculino degradê" class="portfolio-foto" />
+        <div class="portfolio-overlay">
+          <div class="p-info">
+            <span class="p-categoria">Masculino · Degradê</span>
+            <span class="p-nome">Vista Traseira</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção: Cortes Infantis — Modelos de Referência -->
+    <div class="portfolio-label">
+      <div class="portfolio-label-left">
+        <span class="p-label-tag">👦 Cortes Infantis</span>
+        <span class="p-label-nome">Modelos de Referência</span>
+      </div>
+      <div class="portfolio-label-right">
+        <span class="p-label-desc">Mostre a foto ao agendar — executamos o mesmo estilo</span>
+      </div>
+    </div>
+
+    <div class="portfolio-grid--infantil" (click)="abrirFoto($event)">
+
+      <!-- Modelo 1: Bowl Cut com Degradê lateral -->
+      <div class="portfolio-item">
+        <span class="p-ref-badge">Referência</span>
+        <img src="ArthurDelado.jpg" alt="Corte infantil Bowl Cut degradê lateral" class="portfolio-foto" />
+        <div class="portfolio-overlay portfolio-overlay--always">
+          <div class="p-info">
+            <span class="p-categoria">Infantil · Degradê</span>
+            <span class="p-nome">Bowl Cut · Vista Lateral</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modelo 2: Bowl Cut com Fade unilateral -->
+      <div class="portfolio-item">
+        <span class="p-ref-badge">Referência</span>
+        <img src="ArthurDeunilateral.jpg" alt="Corte infantil Bowl Cut fade unilateral" class="portfolio-foto" />
+        <div class="portfolio-overlay portfolio-overlay--always">
+          <div class="p-info">
+            <span class="p-categoria">Infantil · Mid Fade</span>
+            <span class="p-nome">Bowl Cut · Lateral Fade</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modelo 3: Bowl Cut vista traseira -->
+      <div class="portfolio-item">
+        <span class="p-ref-badge">Referência</span>
+        <img src="ArthurDeTras.jpg" alt="Corte infantil Bowl Cut vista traseira" class="portfolio-foto" />
+        <div class="portfolio-overlay portfolio-overlay--always">
+          <div class="p-info">
+            <span class="p-categoria">Infantil · High Fade</span>
+            <span class="p-nome">Bowl Cut · Vista Traseira</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Richard -->
+      <div class="portfolio-item">
+        <span class="p-ref-badge">Referência</span>
+        <img src="RichardCrianca.jpg" alt="Corte infantil degradê" class="portfolio-foto" />
+        <div class="portfolio-overlay portfolio-overlay--always">
+          <div class="p-info">
+            <span class="p-categoria">Infantil · Degradê</span>
+            <span class="p-nome">Fade Lateral</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <span class="p-ref-badge">Referência</span>
+        <img src="RichardCriancaFrente.jpg" alt="Corte infantil vista frontal" class="portfolio-foto" />
+        <div class="portfolio-overlay portfolio-overlay--always">
+          <div class="p-info">
+            <span class="p-categoria">Infantil · Degradê</span>
+            <span class="p-nome">Vista Frontal</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <span class="p-ref-badge">Referência</span>
+        <img src="criancaRICHARD.jpg" alt="Corte infantil Richard" class="portfolio-foto" />
+        <div class="portfolio-overlay portfolio-overlay--always">
+          <div class="p-info">
+            <span class="p-categoria">Infantil · Degradê</span>
+            <span class="p-nome">Richard</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CriancaColorida -->
+      <div class="portfolio-item">
+        <span class="p-ref-badge">Referência</span>
+        <img src="CriancaColorida.jpg" alt="Corte infantil colorido" class="portfolio-foto" />
+        <div class="portfolio-overlay portfolio-overlay--always">
+          <div class="p-info">
+            <span class="p-categoria">Infantil · Criativo</span>
+            <span class="p-nome">Corte Colorido</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <span class="p-ref-badge">Referência</span>
+        <img src="CriancaColoridaDois.jpg" alt="Corte infantil colorido" class="portfolio-foto" />
+        <div class="portfolio-overlay portfolio-overlay--always">
+          <div class="p-info">
+            <span class="p-categoria">Infantil · Criativo</span>
+            <span class="p-nome">Estilo Divertido</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <span class="p-ref-badge">Referência</span>
+        <img src="CriancaColoridaTres.jpg" alt="Corte infantil colorido" class="portfolio-foto" />
+        <div class="portfolio-overlay portfolio-overlay--always">
+          <div class="p-info">
+            <span class="p-categoria">Infantil · Criativo</span>
+            <span class="p-nome">Degradê Colorido</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Lightbox -->
+    @if (imgAberta()) {
+      <div class="lightbox" (click)="fecharFoto()">
+        <button class="lightbox-close" (click)="fecharFoto()">✕</button>
+        <img [src]="imgAberta()!" class="lightbox-img" (click)="$event.stopPropagation()" />
+      </div>
+    }
+
+    <div class="portfolio-cta">
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="btn btn-outline">
+        Ver mais no Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Seção: Avaliações -->
+<section class="avaliacoes">
+  <div class="container">
+    <p class="section-tag">O que dizem sobre nós</p>
+    <h2 class="section-title">Avaliações dos <span>Clientes</span></h2>
+    <p class="section-sub">Mais de 500 clientes satisfeitos em Curitiba</p>
+
+    <div class="media-avaliacao">
+      <span class="media-num">5.0</span>
+      <div class="media-estrelas">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <span class="media-total">baseado em 127 avaliações</span>
+    </div>
+
+    <div class="avaliacoes-grid">
+      @for (av of avaliacoes; track av.nome) {
+        <div class="av-card">
+          <div class="av-header">
+            <div class="av-avatar">
+              <img [src]="av.foto" [alt]="av.nome" class="av-foto" />
+            </div>
+            <div>
+              <p class="av-nome">{{ av.nome }}</p>
+              <p class="av-data">{{ av.data }}</p>
+            </div>
+          </div>
+          <div class="av-estrelas">
+            @for (e of estrelas; track e) {
+              <span [class.ativa]="e <= av.estrelas">★</span>
+            }
+          </div>
+          <p class="av-texto">{{ av.texto }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="diferenciais">
+  <div class="container">
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">✂️</div>
+        <h3>10+ Anos de Experiência</h3>
+        <p>Mais de 10 anos dedicados ao corte de cabelo com técnica e precisão.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">👦</div>
+        <h3>Cortes Infantis</h3>
+        <p>Ambiente acolhedor e divertido para os pequenos clientes.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏆</div>
+        <h3>Produtos Premium</h3>
+        <p>Utilizamos apenas os melhores produtos do mercado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção: Onde Estamos -->
+<section class="onde-estamos">
+  <div class="container">
+    <p class="section-tag">Venha nos visitar</p>
+    <h2 class="section-title">Nossas <span>Unidades</span></h2>
+    <p class="section-sub">Duas unidades para melhor te atender em Curitiba</p>
+
+    <div class="unidades-grid">
+
+      <!-- Unidade 1 -->
+      <div class="unidade-card">
+        <div class="unidade-header">
+          <div class="unidade-badge">01</div>
+          <div>
+            <span class="unidade-label">Unidade Principal</span>
+            <h3>R. João Reboli, 15</h3>
+            <p>Curitiba — PR</p>
+          </div>
+          <a href="https://www.google.com/maps/search/Rua+João+Reboli+15+Curitiba+PR" target="_blank" rel="noopener" class="end-link">
+            Abrir Maps →
+          </a>
+        </div>
+        <div class="unidade-mapa">
+          <iframe
+            src="https://maps.google.com/maps?q=Rua+João+Reboli,+15,+Curitiba,+PR&output=embed&hl=pt-BR"
+            width="100%" height="100%"
+            style="border:0;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Unidade João Reboli">
+          </iframe>
+        </div>
+        <div class="unidade-horarios">
+          <span class="hor-item"><strong>Seg–Sex</strong> 09h–19h</span>
+          <span class="hor-sep">·</span>
+          <span class="hor-item"><strong>Sábado</strong> 09h–17h</span>
+          <span class="hor-sep">·</span>
+          <span class="hor-item hor-fechado"><strong>Domingo</strong> Fechado</span>
+        </div>
+      </div>
+
+      <!-- Unidade 2 -->
+      <div class="unidade-card">
+        <div class="unidade-header">
+          <div class="unidade-badge">02</div>
+          <div>
+            <span class="unidade-label">Unidade Imbual</span>
+            <h3>Estrada da Ribeira, 565</h3>
+            <p>Imbual Roseira — Curitiba</p>
+          </div>
+          <a href="https://www.google.com/maps/search/Estrada+da+Ribeira+565+Imbual+Curitiba+PR" target="_blank" rel="noopener" class="end-link">
+            Abrir Maps →
+          </a>
+        </div>
+        <div class="unidade-mapa">
+          <iframe
+            src="https://maps.google.com/maps?q=Estrada+da+Ribeira,+565,+Curitiba,+PR&output=embed&hl=pt-BR"
+            width="100%" height="100%"
+            style="border:0;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Unidade Imbual Roseira">
+          </iframe>
+        </div>
+        <div class="unidade-horarios">
+          <span class="hor-item"><strong>Seg–Sex</strong> 09h–19h</span>
+          <span class="hor-sep">·</span>
+          <span class="hor-item"><strong>Sábado</strong> 09h–17h</span>
+          <span class="hor-sep">·</span>
+          <span class="hor-item hor-fechado"><strong>Domingo</strong> Fechado</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

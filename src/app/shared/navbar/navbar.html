@@ -1,0 +1,36 @@
+<nav class="navbar">
+  <button class="hamburger" (click)="toggleMenu()" [class.aberto]="menuAberto()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul class="navbar-links" [class.aberto]="menuAberto()">
+
+    <div class="menu-topo">
+      <li class="menu-brand">
+        <img src="logo.png" alt="Rafa Barbershop" class="menu-logo" />
+        <div class="menu-brand-texto">
+          <span class="menu-brand-nome">Rafa</span>
+          <span class="menu-brand-sub">Barbershop</span>
+        </div>
+      </li>
+    </div>
+
+    <div class="menu-itens">
+      <li><a routerLink="/home" routerLinkActive="active" (click)="fecharMenu()">Início</a></li>
+      <li><a routerLink="/servicos" routerLinkActive="active" (click)="fecharMenu()">Serviços</a></li>
+      <li><a routerLink="/agendamento" routerLinkActive="active" (click)="fecharMenu()">Agendar</a></li>
+      <li class="admin-link"><a routerLink="/admin" routerLinkActive="active" (click)="fecharMenu()">Admin</a></li>
+    </div>
+
+    <div class="menu-rodape">
+      <a href="https://wa.me/5541995384543" target="_blank" class="menu-wpp">
+        <span class="wpp-dot"></span>
+        (41) 99538-4543
+      </a>
+      <p class="menu-endereco">📍 R. João Reboli, 15 — Curitiba</p>
+    </div>
+
+  </ul>
+</nav>
