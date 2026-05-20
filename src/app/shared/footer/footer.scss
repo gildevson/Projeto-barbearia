@@ -67,13 +67,23 @@
       margin-bottom: 4px;
     }
 
-    .footer-logo {
+    .footer-logo-wrap {
       width: 70px;
       height: 70px;
       border-radius: 50%;
-      object-fit: cover;
+      overflow: hidden;
+      flex-shrink: 0;
       border: 2.5px solid var(--cor-dourado);
       box-shadow: 0 0 20px rgba(201,168,76,.3);
+    }
+
+    .footer-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transform: scale(1.4);
     }
 
     .footer-brand-nome {

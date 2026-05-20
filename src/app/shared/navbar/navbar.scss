@@ -9,7 +9,7 @@
   border-bottom: 1px solid transparent;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 0 40px;
 
   // ao rolar a página, o Angular pode adicionar classe .scrolled via HostListener se necessário
@@ -20,48 +20,55 @@
     z-index: -1;
   }
 
-  .navbar-brand .brand-link {
+  .navbar-brand {
     display: flex;
     align-items: center;
     gap: 14px;
     text-decoration: none;
-  }
 
-  .navbar-brand .logo {
-    height: 52px;
-    width: 52px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    border: 2.5px solid var(--cor-dourado);
-    box-shadow: 0 0 14px rgba(201, 168, 76, 0.4);
-    flex-shrink: 0;
-  }
+    .logo-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 2.5px solid var(--cor-dourado);
+      box-shadow: 0 0 14px rgba(201, 168, 76, 0.4);
 
-  .navbar-brand .brand-texto {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2px;
-    padding-left: 2px;
-    border-left: 2px solid rgba(201,168,76,.3);
-    padding-left: 14px;
-
-    .brand-nome {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--cor-dourado);
-      letter-spacing: 0.5px;
-      line-height: 1;
+      .logo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+        transform: scale(1.4);
+      }
     }
 
-    .brand-sub {
-      font-size: 0.58rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--cor-texto-suave);
-      line-height: 1;
+    .brand-texto {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2px;
+      padding-left: 14px;
+      border-left: 2px solid rgba(201,168,76,.3);
+
+      .brand-nome {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--cor-dourado);
+        letter-spacing: 0.5px;
+        line-height: 1;
+      }
+
+      .brand-sub {
+        font-size: 0.58rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--cor-texto-suave);
+        line-height: 1;
+      }
     }
   }
 
@@ -96,6 +103,7 @@
   }
 
   // ── links ────────────────────────────────────────────────────────────────
+  .navbar-brand { display: none; }
   .admin-link  { display: none; }
   .menu-brand  { display: none; }
   .menu-topo   { display: none; }
@@ -145,6 +153,25 @@
   .navbar {
     padding: 0 20px;
 
+    .navbar-brand {
+      display: flex;
+      position: fixed;
+      top: 10px;
+      left: 16px;
+      z-index: 1001;
+      gap: 10px;
+
+      .logo-wrap {
+        width: 42px;
+        height: 42px;
+      }
+
+      .brand-texto {
+        .brand-nome { font-size: 0.95rem; }
+        .brand-sub  { font-size: 0.48rem; letter-spacing: 3px; }
+      }
+    }
+
     .hamburger { display: flex; position: fixed; top: 16px; right: 20px; z-index: 1001; }
 
     .navbar-links {
@@ -166,10 +193,7 @@
       &.aberto { transform: translateX(0); }
 
       .menu-topo {
-        display: block;
-        padding-top: 64px;
-        padding-bottom: 32px;
-        border-bottom: 1px solid rgba(201,168,76,.15);
+        display: none;
       }
 
       .menu-brand {
@@ -179,10 +203,11 @@
         list-style: none;
 
         .menu-logo {
-          width: 72px;
-          height: 72px;
+          width: 96px;
+          height: 96px;
           border-radius: 50%;
           object-fit: cover;
+          object-position: center center;
           border: 2.5px solid var(--cor-dourado);
           box-shadow: 0 0 0 6px rgba(201,168,76,.1), 0 0 24px rgba(201,168,76,.25);
         }

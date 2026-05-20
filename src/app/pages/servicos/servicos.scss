@@ -228,8 +228,24 @@
 
   // ── RESPONSIVO ────────────────────────────────────────────────────────────
   @media (max-width: 768px) {
-    .servicos-hero { height: 220px; }
-    .servicos-hero-content h1 { font-size: 1.7rem; }
+    .servicos-hero {
+      height: 280px;
+    }
+
+    .servicos-hero-content {
+      padding-left: 20px;
+      padding-right: 20px;
+      gap: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      .servicos-hero-logo-wrap { display: none; }
+
+      h1 { font-size: 2rem; }
+
+      .hero-sub { font-size: 0.8rem; }
+    }
 
     .servicos-body { padding: 32px 0 64px; }
 
