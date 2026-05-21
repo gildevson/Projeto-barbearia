@@ -301,39 +301,49 @@
 
 // ── SOBRE RAFAELA ─────────────────────────────────────────────────────────────
 .sobre-rafaela {
-  padding: 72px 0;
+  padding: 96px 0;
   background: var(--cor-fundo);
 
   .sobre-layout {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 56px;
-    align-items: start;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 72px;
+    align-items: center;
   }
 
   .sobre-foto {
     position: relative;
 
+    // moldura decorativa deslocada
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -12px -12px 12px 12px;
+      border: 2px solid rgba(201,168,76,.25);
+      border-radius: 22px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
     .sobre-img {
+      position: relative;
+      z-index: 1;
       width: 100%;
-      max-width: 100%;
-      height: auto;
-      min-height: 480px;
+      aspect-ratio: 3 / 4;
       object-fit: cover;
-      object-position: center top;
-      border-radius: 16px;
+      object-position: center 10%;
+      border-radius: 18px;
       display: block;
-      border: 1px solid rgba(201,168,76,.2);
-      box-shadow: 0 24px 60px rgba(0,0,0,.6);
+      box-shadow: 0 32px 72px rgba(0,0,0,.55);
     }
 
     .sobre-experiencia {
       position: absolute;
-      bottom: 24px;
-      right: 16px;
-      z-index: 2;
-      width: 110px;
-      height: 110px;
+      bottom: -20px;
+      right: -20px;
+      z-index: 3;
+      width: 116px;
+      height: 116px;
       border-radius: 50%;
       background: var(--cor-dourado);
       color: #0f0f0f;
@@ -342,20 +352,23 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      box-shadow: 0 8px 32px rgba(201,168,76,.5);
+      box-shadow: 0 10px 36px rgba(201,168,76,.55);
+      border: 4px solid var(--cor-fundo);
 
       .exp-num {
         font-family: 'Playfair Display', serif;
-        font-size: 1.6rem;
+        font-size: 1.7rem;
         font-weight: 700;
         line-height: 1;
       }
       .exp-txt {
-        font-size: 0.6rem;
-        font-weight: 600;
-        margin-top: 3px;
-        padding: 0 8px;
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-top: 4px;
+        padding: 0 10px;
         line-height: 1.3;
+        text-transform: uppercase;
       }
     }
   }
@@ -363,11 +376,11 @@
   .sobre-conteudo {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 16px;
 
     .section-tag {
-      font-size: 0.7rem;
-      letter-spacing: 4px;
+      font-size: 0.68rem;
+      letter-spacing: 5px;
       text-transform: uppercase;
       color: var(--cor-dourado);
       display: flex;
@@ -379,38 +392,77 @@
         width: 28px;
         height: 1px;
         background: var(--cor-dourado);
+        flex-shrink: 0;
       }
     }
 
-    .section-title { margin-bottom: 0; }
+    .section-title {
+      margin-bottom: 4px;
+      line-height: 1.15;
+    }
 
     .sobre-texto {
-      font-size: 0.95rem;
-      color: #888;
-      line-height: 1.85;
-      strong { color: var(--cor-texto); font-weight: 600; }
+      font-size: 0.93rem;
+      color: rgba(255,255,255,.55);
+      line-height: 1.9;
+      strong { color: rgba(255,255,255,.85); font-weight: 600; }
     }
 
     .sobre-especialidades {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 16px;
       margin-top: 4px;
-      padding: 16px 20px;
-      background: var(--cor-fundo-card);
-      border: 1px solid var(--cor-borda);
+      padding: 20px 22px;
+      background: rgba(201,168,76,.04);
+      border: 1px solid rgba(201,168,76,.15);
       border-left: 3px solid var(--cor-dourado);
       border-radius: var(--raio);
 
       .esp-item {
         display: flex;
         align-items: center;
-        gap: 12px;
-        font-size: 0.9rem;
-        color: var(--cor-texto-suave);
-        .esp-icone { font-size: 1.1rem; }
+        gap: 10px;
+        font-size: 0.85rem;
+        color: rgba(255,255,255,.6);
+        .esp-icone { font-size: 1rem; flex-shrink: 0; }
       }
     }
+
+    .btn { align-self: flex-start; margin-top: 8px; }
+  }
+
+  @media (max-width: 900px) {
+    padding: 64px 0;
+
+    .sobre-layout {
+      grid-template-columns: 1fr;
+      gap: 56px;
+    }
+
+    .sobre-foto {
+      max-width: 420px;
+      margin: 0 auto;
+
+      &::before { display: none; }
+
+      .sobre-experiencia {
+        right: 0;
+        bottom: -16px;
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    .sobre-especialidades {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 48px 0;
+
+    .sobre-foto { max-width: 100%; }
   }
 }
 
