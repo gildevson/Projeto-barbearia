@@ -978,13 +978,16 @@
   }
 
   @media (max-width: 900px) {
-    .avaliacoes-grid { grid-template-columns: repeat(2, 1fr); }
+    padding: 56px 0;
+    .avaliacoes-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .media-avaliacao { margin-bottom: 28px; padding: 14px 18px; }
   }
 
   @media (max-width: 560px) {
-    padding: 64px 0;
-    .avaliacoes-grid { grid-template-columns: 1fr; }
-    .media-avaliacao { flex-wrap: wrap; }
+    padding: 40px 0;
+    .avaliacoes-grid { grid-template-columns: 1fr; gap: 10px; }
+    .media-avaliacao { flex-wrap: wrap; margin-bottom: 20px; padding: 12px 16px; }
+    .av-card { padding: 16px; gap: 8px; }
   }
 }
 
@@ -992,6 +995,9 @@
 .diferenciais {
   background: var(--cor-fundo-section);
   padding: 80px 0;
+
+  @media (max-width: 900px) { padding: 40px 0; }
+  @media (max-width: 560px) { padding: 28px 0; }
 
   .cards-grid {
     display: grid;

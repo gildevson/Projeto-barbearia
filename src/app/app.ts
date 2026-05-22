@@ -22,7 +22,7 @@ import { CommonModule } from '@angular/common';
         <div class="wpp-chat-bubble">
           <div class="wpp-chat-header">
             <div class="wpp-avatar">
-              <img src="logo.png" alt="Rafaele" />
+              <img src="RafaCortandoBarba.png" alt="Rafaele" />
             </div>
             <div class="wpp-info">
               <span class="wpp-name">Rafaele</span>
@@ -82,6 +82,6 @@ export class App implements OnInit {
   }
 
   getRouteState(outlet: RouterOutlet) {
-    return outlet?.activatedRouteData?.['animation'] ?? outlet.isActivated ? outlet.activatedRoute.snapshot.url[0]?.path : '';
+    return outlet.isActivated ? outlet.activatedRouteData['animation'] : '';
   }
 }

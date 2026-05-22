@@ -36,6 +36,8 @@ body {
 main {
   flex: 1;
   padding-top: var(--navbar-altura);
+  position: relative;
+  overflow-x: hidden;
 }
 
 h1, h2, h3 {
@@ -107,6 +109,8 @@ ul {
   color: var(--cor-texto-suave);
   font-size: 0.95rem;
   margin-bottom: 48px;
+
+  @media (max-width: 768px) { margin-bottom: 24px; }
 }
 
 .hero-logo-wrap {
@@ -222,10 +226,6 @@ ul {
 }
 
 @media (max-width: 900px) {
-  .diferenciais {
-    padding: 48px 0 !important;
-  }
-
   .diferenciais .cards-grid {
     grid-template-columns: 1fr !important;
     gap: 12px !important;

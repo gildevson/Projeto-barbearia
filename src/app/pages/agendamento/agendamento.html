@@ -52,31 +52,29 @@
         <div class="form-row">
           <div class="form-group">
             <label>Serviço</label>
-            <select>
-              <option value="" disabled selected>Selecione um serviço</option>
-              <optgroup label="── Feminino ──">
-                <option>Corte de cabelo — R$ 45,00</option>
-                <option>Sobrancelha navalha — R$ 15,00</option>
-                <option>Sobrancelha pinça — R$ 45,00</option>
-                <option>Sobrancelha design henna — R$ 50,00</option>
-                <option>Progressiva — a partir R$ 150,00</option>
-                <option>Luzes / Botox / Hidratação — Consulte</option>
-              </optgroup>
-              <optgroup label="── Masculino e Infantil ──">
-                <option>Corte tradicional — R$ 35,00</option>
-                <option>Corte navalhado — R$ 45,00</option>
-                <option>Sobrancelha navalha — R$ 15,00</option>
-                <option>Sobrancelha pinça — R$ 45,00</option>
-              </optgroup>
-              <optgroup label="── Unhas e Estética ──">
-                <option>Manicure básica — R$ 35,00</option>
-                <option>Pedicure básica — R$ 45,00</option>
-                <option>Mãos e pés — R$ 70,00</option>
-                <option>Podologia — a partir R$ 150,00</option>
-                <option>Alongamento gel — R$ 120,00</option>
-                <option>Alongamento fibra — R$ 150,00</option>
-              </optgroup>
-            </select>
+            <div class="select-custom" [class.aberto]="servicoAberto()">
+              <button type="button" class="select-trigger" (click)="toggleServico()">
+                <span [class.placeholder]="!servicoSelecionado()">
+                  {{ servicoSelecionado() || 'Selecione um serviço' }}
+                </span>
+                <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <div class="select-dropdown">
+                @for (cat of categorias; track cat.label) {
+                  <div class="select-categoria">{{ cat.label }}</div>
+                  @for (s of cat.servicos; track s.nome) {
+                    <button type="button" class="select-opcao"
+                      [class.ativa]="servicoSelecionado() === s.nome + ' — ' + s.preco"
+                      (click)="selecionarServico(s.nome, s.preco)">
+                      <span class="opcao-nome">{{ s.nome }}</span>
+                      <span class="opcao-preco">{{ s.preco }}</span>
+                    </button>
+                  }
+                }
+              </div>
+            </div>
           </div>
           <div class="form-group">
             <label>Profissional</label>
