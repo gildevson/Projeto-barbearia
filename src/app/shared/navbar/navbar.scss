@@ -45,7 +45,6 @@
         display: block;
         border: none;
         outline: none;
-        transform: scale(1.35);
       }
     }
 
@@ -212,7 +211,6 @@
           border-radius: 50%;
           object-fit: cover;
           object-position: center center;
-          transform: scale(1.35);
           border: 2.5px solid var(--cor-dourado);
           box-shadow: 0 0 0 6px rgba(201,168,76,.1), 0 0 24px rgba(201,168,76,.25);
         }
