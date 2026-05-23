@@ -80,13 +80,14 @@
         <div class="modal-preview">
           <p class="modal-preview-label">Mensagem que será enviada:</p>
           <div class="wpp-preview">
-            <p>Olá Rafaela! 👋 Gostaria de confirmar meu agendamento:</p>
-            <p><strong>Nome:</strong> {{ nome }}</p>
-            <p><strong>Serviço:</strong> {{ servicoSelecionado() }}</p>
-            <p><strong>Data:</strong> {{ dataFormatada }}</p>
-            <p><strong>Horário:</strong> {{ horario }}</p>
-            @if (unidade) { <p><strong>Unidade:</strong> {{ unidade }}</p> }
-            <p>Aguardo confirmação! 😊</p>
+            <p>Olá {{ profissional === 'Adriana (Unhas)' ? 'Adriana' : 'Rafaele' }}! 👋✨ Gostaria de confirmar meu agendamento na <strong>Rafa Barbershop</strong>! 💇‍♀️</p>
+            <p>👤 <strong>Nome:</strong> {{ nome }}</p>
+            <p>✂️ <strong>Serviço:</strong> {{ servicoSelecionado() }}</p>
+            <p>📅 <strong>Data:</strong> {{ dataFormatada }}</p>
+            <p>🕐 <strong>Horário:</strong> {{ horario }}</p>
+            @if (unidade) { <p>📍 <strong>Unidade:</strong> {{ unidade }}</p> }
+            @if (telefone) { <p>📱 <strong>Telefone:</strong> {{ telefone }}</p> }
+            <p>Fico no aguardo da confirmação! 🙏😊</p>
           </div>
         </div>
 
