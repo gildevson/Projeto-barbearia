@@ -32,20 +32,13 @@
       width: 56px;
       height: 56px;
       border-radius: 50%;
-      overflow: hidden;
       flex-shrink: 0;
       border: 2.5px solid var(--cor-dourado);
       box-shadow: 0 0 14px rgba(201, 168, 76, 0.4);
-
-      .logo {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center center;
-        display: block;
-        border: none;
-        outline: none;
-      }
+      background:
+        url('logo.png') center / cover no-repeat,
+        #0a0a0a;
+      background-blend-mode: multiply;
     }
 
     .brand-texto {
