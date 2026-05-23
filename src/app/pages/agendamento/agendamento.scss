@@ -667,7 +667,12 @@
 
   @media (max-width: 600px) {
     .agendamento-hero { height: 200px; }
-    .agendamento-hero-content h1 { font-size: 1.8rem; }
+    .agendamento-hero-logo-wrap { display: none; }
+    .agendamento-hero-content {
+      gap: 0;
+      padding-left: 20px;
+      h1 { font-size: 1.8rem; }
+    }
     .agendamento-body { padding: 40px 0 64px; }
     .form-agendamento { padding: 24px 16px; }
     .form-row { grid-template-columns: 1fr; }
