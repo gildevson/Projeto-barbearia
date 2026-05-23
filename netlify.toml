@@ -2,6 +2,18 @@
   command = "npm run build"
   publish = "dist/barbearia-frontend/browser"
 
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
+
+[build.processing]
+  skip_processing = false
+
+[[plugins]]
+  package = "@netlify/angular-runtime"
+  [plugins.inputs]
+    outputPath = "dist/barbearia-frontend/browser"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
