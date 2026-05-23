@@ -32,13 +32,13 @@
     &:focus, &:focus-visible { outline: none; }
 
     .logo-wrap {
-      width: 56px;
-      height: 56px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       overflow: hidden;
       flex-shrink: 0;
       border: 2.5px solid var(--cor-dourado);
-      box-shadow: 0 0 14px rgba(201, 168, 76, 0.4);
+      box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
 
       .logo {
         width: 100%;
