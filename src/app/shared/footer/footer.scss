@@ -289,17 +289,28 @@
     }
 
     .footer-cf {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      opacity: 0.65;
-      transition: opacity 0.2s;
+      gap: 6px;
+      background: rgba(246, 130, 31, 0.08);
+      border: 1px solid rgba(246, 130, 31, 0.25);
+      border-radius: 20px;
+      padding: 5px 12px;
+      opacity: 0.8;
+      transition: opacity 0.2s, border-color 0.2s;
 
-      &:hover { opacity: 1; }
+      &:hover { opacity: 1; border-color: #F6821F; }
 
-      .cf-badge {
-        height: 20px;
-        width: auto;
-        display: block;
+      .cf-icon { flex-shrink: 0; }
+
+      .cf-text {
+        font-size: 0.72rem;
+        color: #888;
+
+        strong {
+          color: #F6821F;
+          font-weight: 600;
+        }
       }
     }
 
