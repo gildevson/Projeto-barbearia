@@ -43,7 +43,7 @@ export class Servicos {
       titulo: 'Masculino e Infantil',
       icone: '✂️',
       cor: '#c9a84c',
-      imagem: 'AdultoComDesenhoDois.png',
+      imagem: 'MulherCortandoCabelo.png',
       servicos: [
         { id: 7,  nome: 'Corte tradicional',            preco: 'R$ 35,00' },
         { id: 8,  nome: 'Corte navalhado',              preco: 'R$ 45,00' },
