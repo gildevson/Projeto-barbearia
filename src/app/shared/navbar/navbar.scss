@@ -112,6 +112,7 @@
   .menu-brand  { display: none; }
   .menu-topo   { display: none; }
   .menu-rodape { display: none; }
+  .menu-fundo  { display: none; }
 
   .navbar-links {
     display: flex;
@@ -184,7 +185,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: #0a0a0a;
+      background: transparent;
       z-index: 999;
       flex-direction: column;
       justify-content: space-between;
@@ -195,6 +196,36 @@
       transition: transform 0.35s ease;
 
       &.aberto { transform: translateX(0); }
+
+      .menu-fundo {
+        display: block;
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center 20%;
+          display: block;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: rgba(5, 5, 5, 0.86);
+        }
+      }
+
+      .menu-topo,
+      .menu-itens,
+      .menu-rodape {
+        position: relative;
+        z-index: 1;
+      }
 
       .menu-topo {
         display: none;
