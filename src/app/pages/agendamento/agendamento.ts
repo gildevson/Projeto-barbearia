@@ -18,11 +18,12 @@ export class Agendamento {
   servicoSelecionado = signal('');
 
   // ── Estado do formulário ───────────────────────────────────────────────────
-  nome     = '';
-  telefone = '';
-  unidade  = '';
-  horario  = '';
-  data     = '';
+  nome        = '';
+  telefone    = '';
+  unidade     = '';
+  horario     = '';
+  data        = '';
+  profissional = 'Rafaele Schneider';
 
   // ── Tela de confirmação ────────────────────────────────────────────────────
   confirmando = signal(false);
@@ -102,7 +103,11 @@ export class Agendamento {
   }
 
   enviarWhatsApp() {
-    const msg = `Olá Rafaela! 👋 Gostaria de confirmar meu agendamento:
+    const isAdriana = this.profissional === 'Adriana (Unhas)';
+    const destinatario = isAdriana ? 'Adriana' : 'Rafaele';
+    const numero = isAdriana ? '5541998685659' : '5541995384543';
+
+    const msg = `Olá ${destinatario}! 👋 Gostaria de confirmar meu agendamento:
 
 *Nome:* ${this.nome}
 *Serviço:* ${this.servicoSelecionado()}
@@ -111,7 +116,7 @@ export class Agendamento {
 
 Aguardo confirmação! 😊`;
 
-    const url = `https://wa.me/5541995384543?text=${encodeURIComponent(msg)}`;
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
     this.confirmando.set(false);
     this.enviado.set(true);
