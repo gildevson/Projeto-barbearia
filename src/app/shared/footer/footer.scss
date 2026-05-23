@@ -280,6 +280,29 @@
       color: #444;
     }
 
+    .footer-bottom-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-cf {
+      display: flex;
+      align-items: center;
+      opacity: 0.65;
+      transition: opacity 0.2s;
+
+      &:hover { opacity: 1; }
+
+      .cf-badge {
+        height: 20px;
+        width: auto;
+        display: block;
+      }
+    }
+
     .footer-dev {
       display: inline-flex;
       align-items: center;
