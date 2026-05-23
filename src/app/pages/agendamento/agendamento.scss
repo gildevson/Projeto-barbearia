@@ -300,6 +300,23 @@
         margin-left: 6px;
       }
     }
+
+    .select-confirmar {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--cor-dourado);
+      color: #111;
+      font-weight: 700;
+      font-size: 0.88rem;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      border-top: 1px solid rgba(201,168,76,.2);
+      position: sticky;
+      bottom: 0;
+
+      &:hover { background: #e0ba55; }
+    }
   }
 
   .btn-submit {

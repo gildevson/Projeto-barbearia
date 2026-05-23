@@ -171,6 +171,11 @@
                       </button>
                     }
                   }
+                  @if (servicosSelecionados().length > 0) {
+                    <button type="button" class="select-confirmar" (click)="servicoAberto.set(false)">
+                      Pronto — {{ servicoDisplay }}
+                    </button>
+                  }
                 </div>
               </div>
             </div>
