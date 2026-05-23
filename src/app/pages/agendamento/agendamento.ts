@@ -2,6 +2,9 @@ import { Component, HostListener, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+// Após implantar o Apps Script, substitua a URL abaixo
+const SCRIPT_URL_RAFAELE = 'COLE_A_URL_DO_APPS_SCRIPT_AQUI';
+
 interface Servico { nome: string; preco: string; }
 interface Categoria { label: string; servicos: Servico[]; }
 
@@ -114,17 +117,53 @@ export class Agendamento {
     this.confirmando.set(false);
   }
 
+  private gerarLinkAgenda(): string {
+    const [d, m, y] = this.dataFormatada.split('/');
+    const [h, min] = this.horario.split(':');
+    const fimH = String(parseInt(h) + 1).padStart(2, '0');
+    const inicio = `${y}${m}${d}T${h}${min}00`;
+    const fim    = `${y}${m}${d}T${fimH}${min}00`;
+
+    const titulo  = encodeURIComponent(`[PENDENTE] ${this.servicoSelecionado()} - ${this.nome}`);
+    const local   = encodeURIComponent(this.unidade || 'Rafa Barbershop - Curitiba');
+    const detalhe = encodeURIComponent(
+      `Cliente: ${this.nome}` +
+      (this.telefone ? `\nTelefone: ${this.telefone}` : '') +
+      `\n\nAguardando confirmacao.`
+    );
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${titulo}&dates=${inicio}/${fim}&location=${local}&details=${detalhe}`;
+  }
+
+  private salvarNaAgenda(): void {
+    if (!SCRIPT_URL_RAFAELE || SCRIPT_URL_RAFAELE.startsWith('COLE_')) return;
+    fetch(SCRIPT_URL_RAFAELE, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({
+        nome:     this.nome,
+        servico:  this.servicoSelecionado(),
+        data:     this.dataFormatada,
+        horario:  this.horario,
+        telefone: this.telefone,
+        unidade:  this.unidade
+      })
+    }).catch(() => { /* WhatsApp é o canal principal; agenda é best-effort */ });
+  }
+
   enviarWhatsApp() {
     const isAdriana = this.profissional === 'Adriana (Unhas)';
     const destinatario = isAdriana ? 'Adriana' : 'Rafaele';
     const numero = isAdriana ? '5541998685659' : '5541995384543';
 
-    const msg = `Olá ${destinatario}! Gostaria de confirmar meu agendamento na *Rafa Barbershop* :)
+    const linkAgenda = this.gerarLinkAgenda();
+    const msg = `Ola ${destinatario}! Gostaria de confirmar meu agendamento na *Rafa Barbershop* :)
 
 *Nome:* ${this.nome}
 *Servico:* ${this.servicoSelecionado()}
 *Data:* ${this.dataFormatada}
 *Horario:* ${this.horario}${this.unidade ? '\n*Unidade:* ' + this.unidade : ''}${this.telefone ? '\n*Telefone:* ' + this.telefone : ''}
+
+*Ver na agenda:* ${linkAgenda}
 
 Aguardo confirmacao!`;
 
@@ -132,6 +171,7 @@ Aguardo confirmacao!`;
     window.open(url, '_blank');
     this.confirmando.set(false);
     this.enviado.set(true);
+    this.salvarNaAgenda();
   }
 
   novoAgendamento() {
