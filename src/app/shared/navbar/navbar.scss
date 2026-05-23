@@ -25,6 +25,8 @@
     align-items: center;
     gap: 14px;
     text-decoration: none;
+    outline: none;
+    border: none;
 
     .logo-wrap {
       width: 56px;
@@ -41,6 +43,8 @@
         object-fit: cover;
         object-position: center center;
         display: block;
+        border: none;
+        outline: none;
         transform: scale(1.4);
       }
     }
