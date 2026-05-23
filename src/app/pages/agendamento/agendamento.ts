@@ -69,10 +69,23 @@ export class Agendamento {
     this.servicoAberto.set(false);
   }
 
+  dataInvalida = false;
+
   get dataFormatada(): string {
     if (!this.data) return '';
     const [y, m, d] = this.data.split('-');
     return `${d}/${m}/${y}`;
+  }
+
+  validarData() {
+    if (!this.data) { this.dataInvalida = false; return; }
+    const diaSemana = new Date(this.data + 'T12:00:00').getDay();
+    if (diaSemana === 0) {
+      this.dataInvalida = true;
+      this.data = '';
+    } else {
+      this.dataInvalida = false;
+    }
   }
 
   get formularioValido(): boolean {
