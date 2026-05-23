@@ -17,8 +17,7 @@ import { filter } from 'rxjs/operators';
     </main>
     <app-footer />
 
-    @if (!rotaAgendamento()) {
-      <div class="wpp-widget">
+    <div class="wpp-widget">
 
         @if (chatAberto()) {
           <div class="wpp-chat-bubble">
@@ -61,7 +60,6 @@ import { filter } from 'rxjs/operators';
         }
 
       </div>
-    }
   `,
   styleUrl: './app.scss'
 })
@@ -76,15 +74,19 @@ export class App implements OnInit {
     this.router.events.pipe(
       filter(e => e instanceof NavigationEnd)
     ).subscribe((e: NavigationEnd) => {
-      this.rotaAgendamento.set(e.urlAfterRedirects.startsWith('/agendamento'));
-      if (this.rotaAgendamento()) {
+      const naAgendamento = e.urlAfterRedirects.startsWith('/agendamento');
+      this.rotaAgendamento.set(naAgendamento);
+      if (naAgendamento) {
         this.chatAberto.set(false);
         this.notificacao.set(false);
       }
     });
 
-    setTimeout(() => this.notificacao.set(true), 3000);
-    setTimeout(() => this.chatAberto.set(true), 4000);
+    const inicioAgendamento = this.router.url.startsWith('/agendamento');
+    if (!inicioAgendamento) {
+      setTimeout(() => this.notificacao.set(true), 3000);
+      setTimeout(() => this.chatAberto.set(true), 4000);
+    }
   }
 
   toggleChat() {
