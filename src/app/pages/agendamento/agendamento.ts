@@ -63,6 +63,18 @@ export class Agendamento {
     },
   ];
 
+  get categoriasFiltradas(): Categoria[] {
+    if (this.profissional === 'Adriana (Unhas)') {
+      return this.categorias.filter(c => c.label === 'Unhas e Estética');
+    }
+    return this.categorias.filter(c => c.label !== 'Unhas e Estética');
+  }
+
+  trocarProfissional() {
+    this.servicoSelecionado.set('');
+    this.servicoAberto.set(false);
+  }
+
   toggleServico() { this.servicoAberto.update(v => !v); }
 
   selecionarServico(nome: string, preco: string) {
