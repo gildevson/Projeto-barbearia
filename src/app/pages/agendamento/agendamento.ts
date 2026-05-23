@@ -119,14 +119,14 @@ export class Agendamento {
     const destinatario = isAdriana ? 'Adriana' : 'Rafaele';
     const numero = isAdriana ? '5541998685659' : '5541995384543';
 
-    const msg = `Olá ${destinatario}! 👋✨ Gostaria de confirmar meu agendamento na *Rafa Barbershop*! 💇‍♀️
+    const msg = `Olá ${destinatario}! Gostaria de confirmar meu agendamento na *Rafa Barbershop* :)
 
-👤 *Nome:* ${this.nome}
-✂️ *Serviço:* ${this.servicoSelecionado()}
-📅 *Data:* ${this.dataFormatada}
-🕐 *Horário:* ${this.horario}${this.unidade ? '\n📍 *Unidade:* ' + this.unidade : ''}${this.telefone ? '\n📱 *Telefone:* ' + this.telefone : ''}
+*Nome:* ${this.nome}
+*Servico:* ${this.servicoSelecionado()}
+*Data:* ${this.dataFormatada}
+*Horario:* ${this.horario}${this.unidade ? '\n*Unidade:* ' + this.unidade : ''}${this.telefone ? '\n*Telefone:* ' + this.telefone : ''}
 
-Fico no aguardo da confirmação! 🙏😊`;
+Aguardo confirmacao!`;
 
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
