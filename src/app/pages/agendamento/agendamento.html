@@ -27,7 +27,7 @@
         <p>Sua mensagem foi enviada para a Rafaela pelo WhatsApp.<br>Aguarde a confirmação do horário.</p>
         <div class="sucesso-resumo">
           <div class="resumo-linha"><span>Nome</span><strong>{{ nome }}</strong></div>
-          <div class="resumo-linha"><span>Serviço</span><strong>{{ servicoSelecionado() }}</strong></div>
+          <div class="resumo-linha"><span>Serviço</span><strong>{{ servicoDisplay }}</strong></div>
           <div class="resumo-linha"><span>Data</span><strong>{{ dataFormatada }}</strong></div>
           <div class="resumo-linha"><span>Horário</span><strong>{{ horario }}</strong></div>
         </div>
@@ -51,9 +51,14 @@
             <span>👤 Nome</span>
             <strong>{{ nome }}</strong>
           </div>
-          <div class="resumo-linha">
-            <span>✂️ Serviço</span>
-            <strong>{{ servicoSelecionado() }}</strong>
+          <div class="resumo-linha resumo-servicos">
+            <span>✂️ Serviços</span>
+            <div class="resumo-servicos-lista">
+              @for (s of servicosSelecionados(); track s.nome) {
+                <strong>{{ s.nome }} — {{ s.preco }} <small>({{ formatarDuracao(s.duracao) }})</small></strong>
+              }
+              <span class="resumo-duracao-total">Total: {{ duracaoTexto }}</span>
+            </div>
           </div>
           <div class="resumo-linha">
             <span>📅 Data</span>
@@ -82,7 +87,11 @@
           <div class="wpp-preview">
             <p>Olá {{ profissional === 'Adriana (Unhas)' ? 'Adriana' : 'Rafaele' }}! Gostaria de confirmar meu agendamento na <strong>Rafa Barbershop</strong> :)</p>
             <p><strong>Nome:</strong> {{ nome }}</p>
-            <p><strong>Servico:</strong> {{ servicoSelecionado() }}</p>
+            <p><strong>Servicos:</strong></p>
+            @for (s of servicosSelecionados(); track s.nome) {
+              <p>&nbsp;&nbsp;- {{ s.nome }} — {{ s.preco }} ({{ formatarDuracao(s.duracao) }})</p>
+            }
+            <p><strong>Duracao total:</strong> {{ duracaoTexto }}</p>
             <p><strong>Data:</strong> {{ dataFormatada }}</p>
             <p><strong>Horario:</strong> {{ horario }}</p>
             @if (unidade) { <p><strong>Unidade:</strong> {{ unidade }}</p> }
@@ -141,8 +150,8 @@
               <label>Serviço *</label>
               <div class="select-custom" [class.aberto]="servicoAberto()">
                 <button type="button" class="select-trigger" (click)="toggleServico()">
-                  <span [class.placeholder]="!servicoSelecionado()">
-                    {{ servicoSelecionado() || 'Selecione um serviço' }}
+                  <span [class.placeholder]="!servicoDisplay">
+                    {{ servicoDisplay || 'Selecione um ou mais serviços' }}
                   </span>
                   <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="6 9 12 15 18 9"/>
@@ -153,10 +162,12 @@
                     <div class="select-categoria">{{ cat.label }}</div>
                     @for (s of cat.servicos; track s.nome) {
                       <button type="button" class="select-opcao"
-                        [class.ativa]="servicoSelecionado() === s.nome + ' — ' + s.preco"
-                        (click)="selecionarServico(s.nome, s.preco)">
+                        [class.ativa]="estaSelecionado(s.nome)"
+                        (click)="toggleServicoItem(s)">
+                        <span class="opcao-check">{{ estaSelecionado(s.nome) ? '✓' : '' }}</span>
                         <span class="opcao-nome">{{ s.nome }}</span>
                         <span class="opcao-preco">{{ s.preco }}</span>
+                        <span class="opcao-duracao">{{ formatarDuracao(s.duracao) }}</span>
                       </button>
                     }
                   }
@@ -175,7 +186,7 @@
           <div class="form-row">
             <div class="form-group">
               <label>Data *</label>
-              <input type="date" [(ngModel)]="data" name="data" required (change)="validarData()" />
+              <input type="date" [(ngModel)]="data" name="data" required [min]="dataMinima" (change)="validarData()" />
               @if (dataInvalida) {
                 <span class="campo-erro">❌ Não abrimos aos domingos. Escolha outro dia.</span>
               }
@@ -184,35 +195,9 @@
               <label>Horário *</label>
               <select [(ngModel)]="horario" name="horario" required>
                 <option value="">Selecione</option>
-                <option>07:00</option>
-                <option>07:30</option>
-                <option>08:00</option>
-                <option>08:30</option>
-                <option>09:00</option>
-                <option>09:30</option>
-                <option>10:00</option>
-                <option>10:30</option>
-                <option>11:00</option>
-                <option>11:30</option>
-                <option>12:00</option>
-                <option>12:30</option>
-                <option>13:00</option>
-                <option>13:30</option>
-                <option>14:00</option>
-                <option>14:30</option>
-                <option>15:00</option>
-                <option>15:30</option>
-                <option>16:00</option>
-                <option>16:30</option>
-                <option>17:00</option>
-                <option>17:30</option>
-                <option>18:00</option>
-                <option>18:30</option>
-                <option>19:00</option>
-                <option>19:30</option>
-                <option>20:00</option>
-                <option>20:30</option>
-                <option>21:00</option>
+                @for (h of horariosDisponiveis; track h) {
+                  <option [value]="h">{{ h }}</option>
+                }
               </select>
             </div>
           </div>
@@ -266,8 +251,8 @@
           <div class="info-card">
             <h4>Horários de Atendimento</h4>
             <ul class="horarios-lista">
-              <li><span>Seg – Sex</span><span>09h às 19h</span></li>
-              <li><span>Sábado</span><span>09h às 17h</span></li>
+              <li><span>Seg – Sex</span><span>08h às 21h</span></li>
+              <li><span>Sábado</span><span>08h às 19h</span></li>
               <li class="fechado"><span>Domingo</span><span>Fechado</span></li>
             </ul>
           </div>

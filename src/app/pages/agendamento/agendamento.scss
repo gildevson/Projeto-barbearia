@@ -283,6 +283,22 @@
         white-space: nowrap;
         flex-shrink: 0;
       }
+
+      .opcao-check {
+        width: 16px;
+        flex-shrink: 0;
+        font-size: 0.8rem;
+        color: #c9a84c;
+        font-weight: 700;
+      }
+
+      .opcao-duracao {
+        font-size: 0.72rem;
+        color: rgba(255,255,255,.35);
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin-left: 6px;
+      }
     }
   }
 
@@ -395,6 +411,25 @@
 
     span { color: var(--cor-texto-suave); flex-shrink: 0; }
     strong { color: var(--cor-texto); text-align: right; }
+
+    &.resumo-servicos { align-items: flex-start; }
+  }
+
+  .resumo-servicos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: right;
+
+    strong { font-size: 0.85rem; }
+    small  { color: var(--cor-texto-suave); font-weight: 400; }
+
+    .resumo-duracao-total {
+      font-size: 0.78rem;
+      color: var(--cor-dourado);
+      margin-top: 4px;
+      font-weight: 600;
+    }
   }
 
   .modal-preview {
