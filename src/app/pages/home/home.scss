@@ -453,8 +453,20 @@
       }
     }
 
-    .sobre-especialidades {
-      grid-template-columns: 1fr !important;
+    .sobre-conteudo {
+      text-align: center;
+      align-items: center;
+
+      .section-tag { justify-content: center; }
+
+      .sobre-texto { text-align: left; }
+
+      .sobre-especialidades {
+        grid-template-columns: 1fr !important;
+        text-align: left;
+      }
+
+      .btn { align-self: center; }
     }
   }
 
