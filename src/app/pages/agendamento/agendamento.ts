@@ -133,7 +133,7 @@ export class Agendamento {
   get horariosDisponiveis(): string[] {
     const slots: string[] = [];
     for (let h = 8; h <= 21; h++) {
-      for (let m = 0; m < 60; m += 30) {
+      for (let m = 0; m < 60; m += 15) {
         if (h === 21 && m > 0) break;
         slots.push(`${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`);
       }
