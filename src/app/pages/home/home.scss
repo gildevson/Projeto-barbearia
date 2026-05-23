@@ -75,13 +75,20 @@
       height: 240px;
       min-width: 240px;
       border-radius: 50%;
+      overflow: hidden;
       flex-shrink: 0;
       border: 4px solid var(--cor-dourado);
       box-shadow: 0 0 0 6px rgba(201,168,76,.15), 0 0 30px rgba(201,168,76,.4);
-      background:
-        url('logo.png') center / cover no-repeat,
-        #0a0a0a;
-      background-blend-mode: multiply;
+      background: #111;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        mix-blend-mode: multiply;
+      }
     }
 
     .hero-brand {
