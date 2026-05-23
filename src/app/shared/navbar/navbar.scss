@@ -27,6 +27,9 @@
     text-decoration: none;
     outline: none;
     border: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &:focus, &:focus-visible { outline: none; }
 
     .logo-wrap {
       width: 56px;
@@ -36,7 +39,6 @@
       flex-shrink: 0;
       border: 2.5px solid var(--cor-dourado);
       box-shadow: 0 0 14px rgba(201, 168, 76, 0.4);
-      background: #111;
 
       .logo {
         width: 100%;
@@ -44,7 +46,6 @@
         object-fit: cover;
         object-position: center;
         display: block;
-        mix-blend-mode: multiply;
       }
     }
 
