@@ -36,19 +36,16 @@
       flex-shrink: 0;
       border: 2.5px solid var(--cor-dourado);
       box-shadow: 0 0 14px rgba(201, 168, 76, 0.4);
-      background: #111;
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
       .logo {
-        width: 90%;
-        height: 90%;
-        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
         display: block;
         border: none;
         outline: none;
-        mix-blend-mode: multiply;
+        transform: scale(1.35);
       }
     }
 
@@ -213,12 +210,11 @@
           width: 96px;
           height: 96px;
           border-radius: 50%;
-          object-fit: contain;
-          padding: 6px;
-          background: #111;
+          object-fit: cover;
+          object-position: center center;
+          transform: scale(1.35);
           border: 2.5px solid var(--cor-dourado);
           box-shadow: 0 0 0 6px rgba(201,168,76,.1), 0 0 24px rgba(201,168,76,.25);
-          mix-blend-mode: multiply;
         }
 
         .menu-brand-texto {
