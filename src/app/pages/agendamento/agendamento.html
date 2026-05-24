@@ -191,7 +191,10 @@
           <div class="form-row">
             <div class="form-group">
               <label>Data *</label>
-              <input type="date" [(ngModel)]="data" name="data" required [min]="dataMinima" (change)="validarData()" />
+              <input type="date" #dataInput [(ngModel)]="data" name="data" required [min]="dataMinima"
+                (change)="validarData()"
+                (click)="dataInput.showPicker()"
+                readonly />
               @if (dataInvalida) {
                 <span class="campo-erro">❌ Não abrimos aos domingos. Escolha outro dia.</span>
               }

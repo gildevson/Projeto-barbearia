@@ -164,9 +164,19 @@
       }
     }
 
+    input[type="date"] {
+      cursor: pointer;
+
+      &[readonly] { cursor: pointer; }
+    }
+
     input[type="date"]::-webkit-calendar-picker-indicator {
       filter: invert(0.5);
       cursor: pointer;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      opacity: 0;
     }
   }
 
