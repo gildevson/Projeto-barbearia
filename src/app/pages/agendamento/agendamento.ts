@@ -1,4 +1,4 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -121,6 +121,74 @@ export class Agendamento {
   }
 
   dataInvalida = false;
+
+  // ── Calendário customizado ─────────────────────────────────────────────────
+  calAberto = signal(false);
+  calMes    = signal(new Date().getMonth());
+  calAno    = signal(new Date().getFullYear());
+
+  readonly MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
+                    'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  readonly DIAS_SEMANA = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+
+  readonly calTitulo = computed(() => `${this.MESES[this.calMes()]} ${this.calAno()}`);
+
+  readonly calDias = computed(() => {
+    const primeiroDia = new Date(this.calAno(), this.calMes(), 1).getDay();
+    const totalDias   = new Date(this.calAno(), this.calMes() + 1, 0).getDate();
+    const dias: (number | null)[] = Array(primeiroDia).fill(null);
+    for (let i = 1; i <= totalDias; i++) dias.push(i);
+    while (dias.length % 7 !== 0) dias.push(null);
+    return dias;
+  });
+
+  readonly calPodeVoltar = computed(() => {
+    const hoje = new Date();
+    return !(this.calAno() === hoje.getFullYear() && this.calMes() === hoje.getMonth());
+  });
+
+  calMesAnterior() {
+    if (!this.calPodeVoltar()) return;
+    if (this.calMes() === 0) { this.calMes.set(11); this.calAno.update(a => a - 1); }
+    else this.calMes.update(m => m - 1);
+  }
+
+  calProximoMes() {
+    if (this.calMes() === 11) { this.calMes.set(0); this.calAno.update(a => a + 1); }
+    else this.calMes.update(m => m + 1);
+  }
+
+  calDiaDesabilitado(dia: number): boolean {
+    const hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+    const d = new Date(this.calAno(), this.calMes(), dia);
+    return d < hoje || d.getDay() === 0;
+  }
+
+  calDiaSelecionado(dia: number): boolean {
+    if (!this.data) return false;
+    const [y, m, d] = this.data.split('-').map(Number);
+    return d === dia && (m - 1) === this.calMes() && y === this.calAno();
+  }
+
+  calDiaHoje(dia: number): boolean {
+    const h = new Date();
+    return h.getDate() === dia && h.getMonth() === this.calMes() && h.getFullYear() === this.calAno();
+  }
+
+  calSelecionarDia(dia: number) {
+    if (this.calDiaDesabilitado(dia)) return;
+    const y = this.calAno();
+    const m = String(this.calMes() + 1).padStart(2, '0');
+    const d = String(dia).padStart(2, '0');
+    this.data = `${y}-${m}-${d}`;
+    this.validarData();
+    this.calAberto.set(false);
+  }
+
+  toggleCalendario() {
+    this.calAberto.update(v => !v);
+    this.servicoAberto.set(false);
+  }
 
   get dataMinima(): string {
     const hoje = new Date();
@@ -276,14 +344,15 @@ Aguardo confirmacao!`;
 
   @HostListener('document:click', ['$event'])
   fecharFora(ev: MouseEvent) {
-    if (!(ev.target as HTMLElement).closest('.select-custom')) {
-      this.servicoAberto.set(false);
-    }
+    const t = ev.target as HTMLElement;
+    if (!t.closest('.select-custom')) this.servicoAberto.set(false);
+    if (!t.closest('.cal-custom'))    this.calAberto.set(false);
   }
 
   @HostListener('document:keydown.escape')
   fecharEsc() {
     this.servicoAberto.set(false);
+    this.calAberto.set(false);
     this.confirmando.set(false);
   }
 }
